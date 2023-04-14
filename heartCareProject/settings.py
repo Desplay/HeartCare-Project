@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'HospitalManager',
+    # 3rd party apps
     'debug_toolbar',
+    'django_jinja',
+    # User setup
+    'HospitalManager',
+    
 ]
 
 MIDDLEWARE = [
@@ -59,6 +63,7 @@ INTERNAL_IPS = [
 ROOT_URLCONF = 'heartCareProject.urls'
 
 TEMPLATES = [
+    # Django template engine
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -71,6 +76,19 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+    },
+    # Jinja2 template engine
+    {
+        "BACKEND": "django_jinja.backend.Jinja2",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {}
+    },
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {}
     },
 ]
 

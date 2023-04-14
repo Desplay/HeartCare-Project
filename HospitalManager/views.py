@@ -1,6 +1,10 @@
 from django.shortcuts import render
 
-def demo(request):
-    return render(request, 'demo.html')
+User = {
+    'name': 'John',
+    'age': 20,
+    'phone': '0123456789',
+}
 
-# Create your views here.
+def demo(request):
+    return render(request, 'demo.html', User)
