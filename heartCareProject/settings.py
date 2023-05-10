@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     # 3rd party apps
     'debug_toolbar',
     'django_jinja',
-    # User setup
+    # Local apps
     'HospitalManager',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -66,7 +66,8 @@ TEMPLATES = [
     # Django template engine
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['HospitalManager/Templates',
+                 'HospitalManager/Templates/Includes'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,13 +81,7 @@ TEMPLATES = [
     # Jinja2 template engine
     {
         "BACKEND": "django_jinja.backend.Jinja2",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {}
-    },
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['/heartCareProject/HospitalManager/Templates/includes'],
         "APP_DIRS": True,
         "OPTIONS": {}
     },
@@ -139,6 +134,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_ROOT = BASE_DIR / 'HospitalManager/Static'
 
 STATIC_URL = 'static/'
 
