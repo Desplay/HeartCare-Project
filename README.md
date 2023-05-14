@@ -6,8 +6,10 @@
 
 Little project for learn backend development using with Django
 
+This project uses without any SQL, is using manual database
+
 ## License
-This project created by Desplay, Oliver and Reus, this project is open source, do not use all or part of the code in this Project for any form of commercial use
+This project created by Desplay, Oliver and Reus
 
 ## Some Preview
 
