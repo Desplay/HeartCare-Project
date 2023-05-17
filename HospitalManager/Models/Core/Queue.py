@@ -82,15 +82,15 @@ class Queue:
     dequeue: xóa node đầu tiên của queue
     """
     def dequeue(self):
-        temp = self.queue.value
-        self.queue = self.queue.next
+        temp = self.queue.value # type: ignore
+        self.queue = self.queue.next # type: ignore
         return temp
     """
     remove: xóa node trong queue
     """
     def remove(self, value):
-        if(checkID(self.queue.value, value)):
-            self.queue = self.queue.next
+        if(checkID(self.queue.value, value)): # type: ignore
+            self.queue = self.queue.next # type: ignore
             return
         removeNode(self.queue, value)
     """

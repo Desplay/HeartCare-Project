@@ -30,9 +30,9 @@ duyệt cây theo thứ tự NLR
 def RNL(root, Array):
     if(root == None):
         return
-    RNL(root.right)
+    RNL(root.right) # type: ignore
     Array.append(root.value)
-    RNL(root.left)
+    RNL(root.left) # type: ignore
 
 
 """
@@ -75,13 +75,13 @@ class MaxHeap:
         addSide: thêm node vào cây theo thứ tự ưu tiên
         """
         def addSide(side):
-            if(current[side] == None):
-                current[side] = newNode
+            if(current[side] == None): # type: ignore
+                current[side] = newNode # type: ignore
                 return self
-            current = current[side]
+            current = current[side] # type: ignore
         while True:
             if(value == current.value):
-                current.count += 1
+                current.count += 1 # type: ignore
                 return self
             if(value.disease.prioritized > current.value.disease.prioritized):
                 addSide('left')
@@ -116,7 +116,7 @@ class MaxHeap:
             for i in data:
                 if(i.IDCode != valueID):
                     self.enqueue(i)
-        return temp
+        return temp # type: ignore
     """
     dequeue: xóa node có giá trị lớn nhất
     """
