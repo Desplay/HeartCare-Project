@@ -11,6 +11,9 @@ This project uses without any SQL, is using manual database
 ## License
 This project created by Desplay, Oliver and Reus
 
+## Class diagram
+![](./Images/Charts.drawio.png)
+
 ## Some Preview
 
 ### Menu

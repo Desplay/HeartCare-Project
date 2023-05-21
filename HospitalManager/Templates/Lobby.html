@@ -14,18 +14,15 @@
               <a class="nav-link" href="/queue-room"> Queue Room</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand d-none d-lg-block" href="/lobby">Lobby Room </a>
+              <a class="navbar-brand d-none d-lg-block" href="/lobby" id="test">Lobby Room </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <section class="section-padding">
-      {% include "Includes/Form.html" %}
-    </section>
-    <footer class="site-footer section-padding">
-      {%include "./Includes/Footer.html" %}
-    </footer>
+    <section class="section-padding">{% include "Includes/Form.html" %} {%include "./Includes/TableLobby.html"%}</section>
+    <footer class="site-footer section-padding">{%include "./Includes/Footer.html" %}</footer>
     {%include "./Includes/Scripts.html" %}
+    <script src="{% static './clients/Lobby.socket.js' %}"></script>
   </body>
 </html>

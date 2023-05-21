@@ -1,7 +1,7 @@
 """
 Normal Queue
 """
-
+# ==========================================================================================
 """
 tạo object node
 """
@@ -9,8 +9,7 @@ class node:
     def __init__(self, value):
         self.value = value
         self.next = None
-
-
+# ==========================================================================================
 """
 add node vào cuối queue
 """
@@ -20,8 +19,7 @@ def addNode(queue, value):
     else:
         queue.next = addNode(queue.next, value)
     return queue
-
-
+# ==========================================================================================
 """
 duyệt queue
 """
@@ -30,8 +28,7 @@ def getReturn(queue, array):
         return
     array.append(queue.value)
     getReturn(queue.next, array)
-
-
+# ==========================================================================================
 """
 xoa node đầu tiên của queue
 """
@@ -39,15 +36,13 @@ def removeHead(queue):
     if(queue == None):
         return None
     return queue.next
-
-
+# ==========================================================================================
 """
 check IDCode
 """
 def checkID(value1, value2):
     return value1.IDCode == value2.IDCode
-
-
+# ==========================================================================================
 """
 remove node
 """
@@ -58,8 +53,7 @@ def removeNode(queue, value):
         queue.next = queue.next.next
         return;
     removeNode(queue.next, value)
-
-
+# ==========================================================================================
 """
 tạo thuật toán Queue với các phương thức enqueue, dequeue, find
 """
@@ -69,6 +63,7 @@ class Queue:
     """
     def __init__(self):
         self.queue = None
+# ==========================================================================================
     """
     enqueue: thêm node vào cuối queue
     """
@@ -78,6 +73,7 @@ class Queue:
             self.queue = newNode
             return
         addNode(self.queue, value)
+# ==========================================================================================
     """
     dequeue: xóa node đầu tiên của queue
     """
@@ -85,6 +81,7 @@ class Queue:
         temp = self.queue.value # type: ignore
         self.queue = self.queue.next # type: ignore
         return temp
+# ==========================================================================================
     """
     remove: xóa node trong queue
     """
@@ -93,6 +90,7 @@ class Queue:
             self.queue = self.queue.next # type: ignore
             return
         removeNode(self.queue, value)
+# ==========================================================================================
     """
     return: trả về mảng các node trong queue
     """

@@ -1,8 +1,16 @@
 from django.urls import path
-from . import views
+
+from .Views.views import Menu, Error404
+from .Views.Lobby import LobbyGet, LobbyPost, LobbyPop
+from .Views.EditPatient import EditPatientGet, EditPatientPost
 
 urlpatterns = [
-    path('', views.Menu, name='Menu'),
-    path('lobby/', views.LobbyGet, name='Lobby'),
-    path('lobby/submit/', views.LobbyPost, name='LobbyPost'),
+    path("", Menu, name="Menu"),
+    path("lobby/", LobbyGet, name="LobbyGet"),
+    path("lobby/submit", LobbyPost, name="LobbyPost"),
+    path("lobby/pop", LobbyPop, name="LobbyPop"),
+    path("edit-patient", EditPatientGet, name="editPatientGet"),  # type: ignore
+    path("edit-patient/submit", EditPatientPost, name="editPatientPost"), # type: ignore
 ]
+
+handler404 = Error404

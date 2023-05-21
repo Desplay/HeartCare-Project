@@ -1,4 +1,3 @@
-import json
 from HospitalManager.Utils.readData import DoctorData
 from .Core.queue import Queue
 
@@ -28,7 +27,7 @@ for doctor in DoctorData():
 """
 Tạo hàm thêm bệnh nhân vào hàng đợi của bác sĩ
 """
-def addPatient (Doctor, Patient):
+def addPatient(Doctor, Patient):
     Doctor['Queue'].enqueue(Patient)
 
 
