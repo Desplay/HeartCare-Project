@@ -11,7 +11,7 @@ def EditPatientGet(request):
         request,
         "EditPatient.html",
         {
-            "patient": findPatient(IDCode),
+            "patient":findPatient(IDCode),
             "Genders": genderData(),
             "Diseases": diseaseData(),
         },
