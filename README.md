@@ -4,7 +4,7 @@
 *Author by DeplayShido, OliverZeros and Reus*
 </div>
 
-Little project for learn backend development using with Django
+Little project open source for learn backend development using with Django
 
 This project uses without any SQL, is using manual database
 
