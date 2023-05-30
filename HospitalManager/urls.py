@@ -4,6 +4,7 @@ from .Views.views import Menu, Error404
 from .Views.Lobby import LobbyGet, LobbyPost, LobbyPop
 from .Views.EditPatient import EditPatientGet, EditPatientPost
 from .Views.QueueRoom import QueueGet, QueuePost
+from .Views.DoctorRoom import DoctorGet, DoctorPost
 
 urlpatterns = [
     path("", Menu, name="Menu"),
@@ -13,7 +14,9 @@ urlpatterns = [
     path("edit-patient", EditPatientGet, name="editPatientGet"),  # type: ignore
     path("edit-patient/submit", EditPatientPost, name="editPatientPost"), # type: ignore
     path("queue-room/", QueueGet, name="QueueGet"),
-    path("queue-room/move", QueuePost, name="QueuePop") # type: ignore
+    path("queue-room/move", QueuePost, name="QueuePop"), # type: ignore
+    path("doctor", DoctorGet, name="DoctorGet"), # type: ignore
+    path("doctor/submit", DoctorPost, name="DoctorPop"), # type: ignore
 ]
 
 handler404 = Error404

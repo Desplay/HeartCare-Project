@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     {% include "./Includes/Header.html" %}
-    <title> Edit Patients </title>
+    <title>Doctor Room</title>
   </head>
   <body>
     <main>
@@ -21,11 +21,18 @@
           </div>
         </div>
       </nav>
-      {%include "./Includes/editForm.html"%}
+      <section>
+        <div class="container">
+            <img src="{% static './images/quack.png' %}" class="img-fluid" alt="" style="margin: auto; display: block; width: 300px; height: auto" />
+            <h2 class="text-center mb-lg-3 mb-2 text-uppercase"> Doctor {{ Doctor.Doctor.name }} </h2>
+            {%include "./Includes/TableDoctorRoom.html" %}
+        </div>
+      </section>
     </main>
     <footer class="site-footer section-padding">
       {%include "./Includes/Footer.html" %}
     </footer>
     {%include "./Includes/Scripts.html" %}
+    <script src="{% static './clients/DoctorRoom.socket.js' %}"></script>
   </body>
 </html>

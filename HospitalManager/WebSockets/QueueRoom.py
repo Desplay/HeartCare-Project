@@ -12,7 +12,6 @@ class WSQueueRoom(AsyncWebsocketConsumer):
                 {"Patients": ReturnDataPatientsQueue(), "Doctors": dataRender()}
             )
         )
-        print("Connect")
         return
 
     async def disconnect(self, any):

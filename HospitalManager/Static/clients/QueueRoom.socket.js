@@ -77,7 +77,6 @@ function sendEvent() {
 
 socket.onmessage = function (event) {
   var data = JSON.parse(event.data);
-  console.log(data);
   if (DataTempOnQueue.Patients.length === 0) {
     refreshTable(data.Patients);
     refreshCards(data.Doctors);
