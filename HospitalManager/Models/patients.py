@@ -5,7 +5,7 @@ from HospitalManager.Utils.generateID import generateID
 
 
 PatientsLobby = priorityQueue.Queue()
-PatientsTreatment = queue.Queue()
+PatientsInQueue = queue.Queue()
 
 def CreatePatient(inputData):
     inputData.update({"IDCode": str(generateID())})
@@ -27,11 +27,10 @@ def editPatient(inputData):
 
 
 def popPatientLobby():
-    return PatientsTreatment.enqueue(PatientsLobby.dequeue())
+    return PatientsInQueue.enqueue(PatientsLobby.dequeue())
 
 def removePatientWithID(IDCode):
-    PatientsLobby.remove(IDCode)
-    return
+    return PatientsLobby.remove(IDCode)
 
 
 def ReturnDataPatientsLobby():
@@ -39,4 +38,4 @@ def ReturnDataPatientsLobby():
 
 
 def ReturnDataPatientsQueue():
-    return PatientsTreatment.Return()
+    return PatientsInQueue.Return()

@@ -1,6 +1,6 @@
 const socket = new WebSocket("ws://" + window.location.host + "/ws/lobby/");
 
-var DataTemp;
+var DataTempOnLobby = [];
 
 const refresh = (data) => {
   const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
@@ -53,16 +53,26 @@ const refresh = (data) => {
 function sendEvent() {
   const event = {
     'method': 'SyncLobby',
-    'data': DataTemp
+    'data': DataTempOnLobby
   };
-  socket.send(event);
+  socket.send(JSON.stringify(event));
 }
 
 socket.onmessage = function (event) {
   var data = JSON.parse(event.data);
-  if(DataTemp !== data)
-    DataTemp = data;
+  if(DataTempOnLobby.length === 0)
     refresh(data);
+    
+  if(DataTempOnLobby.length === 0 && data.length !== 0) {
+    DataTempOnLobby = data;
+    refresh(data);
+  }
+  data.forEach(element => {
+    if(DataTempOnLobby.findIndex(x => x.IDCode === element.IDCode) === -1) {
+      DataTempOnLobby = data;
+      refresh(data);
+    }
+  });
   sendEvent();
 };
 

@@ -41,18 +41,11 @@ def removeHead(queue):
 check IDCode
 """
 def checkID(value1, value2):
-    return value1.IDCode == value2.IDCode
+    return value1['IDCode'] == value2['IDCode']
 # ==========================================================================================
 """
 remove node
 """
-def removeNode(queue, value):
-    if(queue.next == None):
-        return
-    if(checkID(queue.next.value, value)):
-        queue.next = queue.next.next
-        return;
-    removeNode(queue.next, value)
 # ==========================================================================================
 """
 tạo thuật toán Queue với các phương thức enqueue, dequeue, find
@@ -83,13 +76,27 @@ class Queue:
         return temp
 # ==========================================================================================
     """
+    dequeue: xóa node đầu tiên của queue
+    """
+    def getLength(self):
+        temp = self.queue
+        count = 0
+        while(temp != None):
+            count += 1
+            temp = temp.next
+        return count
+# ==========================================================================================
+    """
     remove: xóa node trong queue
     """
     def remove(self, value):
-        if(checkID(self.queue.value, value)): # type: ignore
-            self.queue = self.queue.next # type: ignore
-            return
-        removeNode(self.queue, value)
+        while not self.queue == None:
+            if(checkID(self.queue.value, value)):
+                temp = self.queue.value
+                self.queue = self.queue.next
+                return temp
+            self.queue = self.queue.next
+        return None
 # ==========================================================================================
     """
     return: trả về mảng các node trong queue

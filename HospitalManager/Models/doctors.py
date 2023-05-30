@@ -25,14 +25,25 @@ for doctor in DoctorData():
     Doctors.append(Node)
 
 """
-Tạo hàm thêm bệnh nhân vào hàng đợi của bác sĩ
-"""
-def addPatient(Doctor, Patient):
-    Doctor['Queue'].enqueue(Patient)
-
-
-"""
 Tạo hàm trả về các bác sĩ
 """
 def dataRender():
-    return Doctors
+    Data = []
+    for doctor in Doctors:
+        Node = {
+            'Doctor': doctor['Doctor'].__dict__,
+            'Queue': doctor['Queue'].Return(),
+        }
+        Data.append(Node)
+    return Data
+
+
+"""
+Tạo hàm thêm bệnh nhân vào hàng đợi của bác sĩ
+"""
+def addPatientToQueue(patient):
+    for doctor in Doctors:
+        if (doctor['Queue'].getLength() < doctor['Doctor'].slot and doctor['Doctor'].specialist == patient['disease']['specialist']):
+            doctor['Queue'].enqueue(patient)
+            return 'Done'
+    return 'Fail'
