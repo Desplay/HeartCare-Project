@@ -8,7 +8,7 @@ const refresh = (data) => {
   else document.getElementById("TablePatients").style.display = "block";
   table.innerHTML = "";
   data.map((element, index) => {
-    if (index < 3) {
+    if (index < 10) {
       let Row = document.createElement("tr");
 
       let Number = document.createElement("td");
