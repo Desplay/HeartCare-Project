@@ -3,7 +3,7 @@ from .Core.queue import Queue
 
 
 """
-Tạo class Doctor
+Tạo class object Doctor
 """
 class Doctor:
     def __init__(self, ID, name, slot, specialist):
@@ -25,7 +25,7 @@ for doctor in DoctorData():
     Doctors.append(Node)
 
 """
-Tạo hàm trả về các bác sĩ
+Hàm trả về các bác sĩ
 """
 def dataRender():
     Data = []
@@ -37,22 +37,32 @@ def dataRender():
         Data.append(Node)
     return Data
 
+
+"""
+Hàm tìm bác sĩ theo ID
+"""
 def findDoctor(ID):
     for doctor in Doctors:
         if(doctor['Doctor'].ID == ID):
             return doctor
     return None
 
+"""
+Hàm trả về các bác sĩ
+"""
 def parseDoctor(doctor):
     return {
         'Doctor': doctor['Doctor'].__dict__,
         'Queue': doctor['Queue'].Return(),
     }
 
+"""
+Hàm xóa bệnh nhân khỏi hàng đợi của bác sĩ
+"""
 def popPatientFromQueue(doctor):
     return doctor['Queue'].dequeue()
 """
-Tạo hàm thêm bệnh nhân vào hàng đợi của bác sĩ
+Hàm thêm bệnh nhân vào hàng đợi của bác sĩ
 """
 def addPatientToQueue(patient):
     for doctor in Doctors:

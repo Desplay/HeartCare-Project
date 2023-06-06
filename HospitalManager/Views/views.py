@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-
+"""
+Hàm render trang chủ
+"""
 def Menu(request):
     if request.method == "post":
         pass
@@ -8,6 +10,8 @@ def Menu(request):
         pass
     return render(request, "Home.html")
 
-
+"""
+Hàm render trang lỗi 404
+"""
 def Error404(request, exception):
     return render(request, "404.html")

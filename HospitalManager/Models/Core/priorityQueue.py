@@ -130,8 +130,6 @@ def addNode(queue, value):
 """
 tạo thuật toán Queue với các phương thức enqueue, dequeue, find
 """
-
-
 class Queue:
     """
     tạo queue

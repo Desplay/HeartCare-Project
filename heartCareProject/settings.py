@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # 3rd party apps
     "daphne",
-    "debug_toolbar",
+    # "debug_toolbar",
     "channels",
     # Local apps
     "HospitalManager",
