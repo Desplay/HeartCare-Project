@@ -86,20 +86,16 @@ class Queue:
     remove: xóa node trong queue
     """
     def remove(self, value):
-        prev = None
-        current = self.queue
-        while not current is None:
-            if(checkID(current.value, value)):
-                break
-            prev = current
-            current = current.next
-        if current is None:
+        if(checkID(self.queue.value, value)): # type: ignore
+            self.queue = self.queue.next # type: ignore
             return
-        if prev is None: # type: ignore
-            self.queue = current.next # type: ignore
-        prev.next = current.next # type: ignore
-        if prev.next is None: # type: ignore
-            self.queue = None
+        temp = self.queue
+        while(temp.next != None):   # type: ignore
+            if(checkID(temp.next.value, value)):    # type: ignore
+                temp.next = temp.next.next  # type: ignore
+                return
+            temp = temp.next    # type: ignore
+        
 # ==========================================================================================
     """
     return: trả về mảng các node trong queue
