@@ -36,6 +36,3 @@ Django                  4.2.1
 daphne                  4.0.0
 channels                4.0.0
 ```
-
-## Contributors
-[![contributors](https://contributors-img.web.app/image?repo=desplay/heart-care-project)](https://github.com/Desplay/heart-care-project/graphs/contributors)
