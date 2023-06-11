@@ -188,3 +188,10 @@ class Queue:
         Array = []
         getReturn(self.queue, Array)
         return Array
+    
+    # ==========================================================================================
+    """
+    length: trả về độ dài của queue
+    """
+    def length(self):
+        return len(self.Return())

@@ -18,7 +18,6 @@ Hàm đẩy bệnh nhân ra khỏi hàng đợi của phòng bác sĩ
 """
 def DoctorPost(request):
     ID = request.GET.get('DoctorID')
-    print(findDoctor(ID) == None)
     if(findDoctor(ID) == None):
         return redirect('404')
     popPatientFromQueue(findDoctor(ID))

@@ -24,6 +24,9 @@ const refreshTable = (dataPatients) => {
     let Number = document.createElement("td");
     Number.textContent = index + 1;
 
+    let PhyID = document.createElement("td");
+    PhyID.textContent = element.PhyID;
+
     let Name = document.createElement("td");
     Name.textContent = element.name;
 
@@ -42,13 +45,17 @@ const refreshTable = (dataPatients) => {
     let Message = document.createElement("td");
     Message.textContent = element.message;
 
+    let Treat = document.createElement("td");
+
     Row.appendChild(Number);
+    Row.appendChild(PhyID);
     Row.appendChild(Name);
     Row.appendChild(Age);
     Row.appendChild(Gender);
     Row.appendChild(Date);
     Row.appendChild(Disease);
     Row.appendChild(Message);
+    Row.appendChild(Treat)
     table.appendChild(Row);
   });
 };

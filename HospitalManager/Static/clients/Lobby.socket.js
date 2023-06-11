@@ -8,45 +8,44 @@ const refresh = (data) => {
   else document.getElementById("TablePatients").style.display = "block";
   table.innerHTML = "";
   data.map((element, index) => {
-    if (index < 10) {
-      let Row = document.createElement("tr");
+    let Row = document.createElement("tr");
 
-      let Number = document.createElement("td");
-      Number.textContent = index + 1;
+    let Number = document.createElement("td");
+    Number.textContent = index + 1;
 
-      let Name = document.createElement("td");
-      let link = document.createElement("a");
-      link.classList.add("_parent");
-      let linkTitle = document.createTextNode(element.name);
-      link.appendChild(linkTitle);
-      link.title = element.name;
-      link.href = "/edit-patient?ID=" + element.IDCode;
-      Name.appendChild(link);
+    let PhyID = document.createElement("td");
+    PhyID.textContent = element.PhyID;
 
-      let Age = document.createElement("td");
-      Age.textContent = element.age;
+    let Name = document.createElement("td");
+    Name.textContent = element.name;
 
-      let Gender = document.createElement("td");
-      Gender.textContent = element.gender.value;
+    let Age = document.createElement("td");
+    Age.textContent = element.age;
 
-      let Date = document.createElement("td");
-      Date.textContent = element.date;
+    let Gender = document.createElement("td");
+    Gender.textContent = element.gender.value;
 
-      let Disease = document.createElement("td");
-      Disease.textContent = element.disease.name;
+    let Date = document.createElement("td");
+    Date.textContent = element.date;
 
-      let Message = document.createElement("td");
-      Message.textContent = element.message;
+    let Disease = document.createElement("td");
+    Disease.textContent = element.disease.name;
 
-      Row.appendChild(Number);
-      Row.appendChild(Name);
-      Row.appendChild(Age);
-      Row.appendChild(Gender);
-      Row.appendChild(Date);
-      Row.appendChild(Disease);
-      Row.appendChild(Message);
-      table.appendChild(Row);
-    }
+    let Message = document.createElement("td");
+    Message.textContent = element.message;
+
+    let Treat = document.createElement("td");
+
+    Row.appendChild(Number);
+    Row.appendChild(PhyID);
+    Row.appendChild(Name);
+    Row.appendChild(Age);
+    Row.appendChild(Gender);
+    Row.appendChild(Date);
+    Row.appendChild(Disease);
+    Row.appendChild(Message);
+    Row.appendChild(Treat)
+    table.appendChild(Row);
   });
 };
 
@@ -60,7 +59,8 @@ function sendEvent() {
 
 socket.onmessage = function (event) {
   var data = JSON.parse(event.data);
-  if(DataTempOnLobby.length === 0)
+  console.log(data);
+  if(DataTempOnLobby.length === 0 || data.length === 0)
     refresh(data);
     
   if(DataTempOnLobby.length === 0 && data.length !== 0) {

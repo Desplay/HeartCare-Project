@@ -16,6 +16,9 @@ const refresh = (dataPatients) => {
       let Number = document.createElement("td");
       Number.textContent = index + 1;
   
+      let PhyID = document.createElement("td");
+      PhyID.textContent = element.PhyID;
+
       let Name = document.createElement("td");
       Name.textContent = element.name;
   
@@ -37,6 +40,7 @@ const refresh = (dataPatients) => {
       let Treat = document.createElement("td");
   
       Row.appendChild(Number);
+      Row.appendChild(PhyID);
       Row.appendChild(Name);
       Row.appendChild(Age);
       Row.appendChild(Gender);
@@ -71,7 +75,6 @@ socket.onopen = function (event) {
 
 socket.onmessage = function (event) {
   var data = JSON.parse(event.data).Queue;
-  console.log(data)
   if(DataTempOnDoctorRoom.length === 0)
     refresh(data);
     

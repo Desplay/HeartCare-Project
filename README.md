@@ -30,7 +30,8 @@ This project created by Desplay, Oliver and Reus
 ```
 python                  3.11.3
 Django                  4.2.1  
-django-debug-toolbar    4.0.0  
+daphne                  4.0.0
+channels                4.0.0
 ```
 
 ## Contributors

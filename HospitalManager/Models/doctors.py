@@ -1,7 +1,10 @@
 from HospitalManager.Utils.readData import DoctorData
 from .Core.queue import Queue
+from HospitalManager.Utils.backUp import DoctorRoomBackUp
+from HospitalManager.Utils.readData import PatientInDoctorRoomData as Patients
 
-
+BackUp = []
+Doctors = []
 """
 Tạo class object Doctor
 """
@@ -16,14 +19,18 @@ class Doctor:
 """
 Tạo mảng chứa các bác sĩ và hàng đợi của bác sĩ
 """
-Doctors = []
 for doctor in DoctorData():
     Node = {
         'Doctor': Doctor(doctor['ID'], doctor['name'], doctor['slot'], doctor['specialist']),
         'Queue': Queue(),
     }
     Doctors.append(Node)
-
+    
+for patient in Patients():
+    for doctor in Doctors:
+        if (patient['DoctorID'] == doctor['Doctor'].ID):
+            doctor['Queue'].enqueue(patient['Patient'])
+            break
 """
 Hàm trả về các bác sĩ
 """
@@ -60,7 +67,12 @@ def parseDoctor(doctor):
 Hàm xóa bệnh nhân khỏi hàng đợi của bác sĩ
 """
 def popPatientFromQueue(doctor):
+    for patient in BackUp:
+        if (patient['DoctorID'] == doctor['Doctor'].ID):
+            BackUp.remove(patient)
+            DoctorRoomBackUp(BackUp)
     return doctor['Queue'].dequeue()
+
 """
 Hàm thêm bệnh nhân vào hàng đợi của bác sĩ
 """
@@ -68,5 +80,11 @@ def addPatientToQueue(patient):
     for doctor in Doctors:
         if (doctor['Queue'].getLength() < doctor['Doctor'].slot and doctor['Doctor'].specialist == patient['disease']['specialist']):
             doctor['Queue'].enqueue(patient)
+            parseData = {
+                "DoctorID": doctor['Doctor'].ID,
+                "Patient": patient,
+            }
+            BackUp.append(parseData)
+            DoctorRoomBackUp(BackUp)
             return 'Done'
     return 'Fail'
