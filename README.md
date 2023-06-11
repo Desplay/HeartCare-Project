@@ -11,6 +11,9 @@ This project uses without any SQL, is using manual database
 ## License
 This project created by Desplay, Oliver and Reus
 
+## First time ?
+Run file `install-framework.bat` for first, and run `run-server.bat` for run server, All this file in folder `./Utils`
+
 ## Class diagram
 ![](./Images/Charts.drawio.png)
 
